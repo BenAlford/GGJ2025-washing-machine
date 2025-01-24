@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SpawnSide {Left, Right, Top};
+
 public class Movement : MonoBehaviour
 {
-    public enum SpawnSide {Left, Right, Top};
+
     public SpawnSide spawn_side;
     private Vector2 spawn_loc;
 
