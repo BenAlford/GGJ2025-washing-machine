@@ -8,11 +8,25 @@ public struct NoteData
 {
     public int bar;
     public int beat;
+    public SpawnSide side;
+}
+
+public enum HitTiming
+{
+    Perfect,
+    Late,
+    Early,
+    Miss
 }
 
 public class TimeManager : MonoBehaviour
 {
+    public GameObject note_pref;
+
     public List<NoteData> data;
+
+    List<Movement> current_notes = new List<Movement>();
+
     int data_index = 0;
 
     int bar = 1;
@@ -47,21 +61,66 @@ public class TimeManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (beat_timer < 0.125f || time_for_beat - beat_timer < 0.125f )
+            HitTiming timing = HitTiming.Perfect;
+            bool next_beat = false;
+
+            if (beat_timer < 0.125f)
             {
                 perfect_text.text = "perfect";
+
+            }
+            else if (time_for_beat - beat_timer < 0.125f)
+            {
+                perfect_text.text = "perfect";
+                next_beat = true;
             }
             else if (beat_timer < 0.25f)
             {
                 perfect_text.text = "late";
+
+                timing = HitTiming.Late;
             }
             else if (time_for_beat - beat_timer < 0.25f)
             {
                 perfect_text.text = "early";
+                next_beat = true;
+
+                timing = HitTiming.Early;
+            }
+            else if (beat_timer < time_for_beat / 2)
+            {
+                perfect_text.text = "bad";
+                timing = HitTiming.Miss;
             }
             else
             {
                 perfect_text.text = "bad";
+                timing = HitTiming.Miss;
+                next_beat = true;
+            }
+
+            int bar_hit = bar;
+            int beat_hit = beat;
+
+            if (next_beat)
+            {
+                beat_hit++;
+                if (beat_hit > 4)
+                {
+                    beat_hit = 1;
+                    bar_hit++;
+                }
+            }
+
+            print("bar hit: " + bar_hit.ToString() + " beat hit: " + beat_hit.ToString());
+            for (int i = current_notes.Count - 1; i >= 0; i--)
+            {
+                if (current_notes[i].arrival_bar == bar_hit && current_notes[i].arrival_beat == beat_hit)
+                {
+                    print("YIPPPEEE!!!");
+                    Destroy(current_notes[i].gameObject);
+                    current_notes.RemoveAt(i);
+                }
             }
         }
         beat_timer += Time.deltaTime;
@@ -83,6 +142,10 @@ public class TimeManager : MonoBehaviour
                 while (data[data_index].bar == bar && data[data_index].beat == beat)
                 {
                     pulser.Pulse();
+                    GameObject new_note = Instantiate(note_pref);
+                    new_note.GetComponent<Movement>().spawn_side = data[data_index].side;
+                    new_note.GetComponent<Movement>().SetArrivalBeat(bar, beat);
+                    current_notes.Add(new_note.GetComponent<Movement>());
 
                     data_index++;
                     if (data_index >= data.Count)
@@ -93,5 +156,16 @@ public class TimeManager : MonoBehaviour
                 }
             }
         }
+
+        for (int i = current_notes.Count - 1; i >= 0; i--)
+        {
+            if (current_notes[i].finished)
+            {
+                Destroy(current_notes[i].gameObject);
+                current_notes.RemoveAt(i);
+            }
+        }
+
     }
 }
+
