@@ -54,17 +54,23 @@ public class TimeManager : MonoBehaviour
     int ok_count = 0;
     int bad_count = 0;
 
-
     // Start is called before the first frame update
     void Start()
     {
         time_for_beat = 1f / ((float)bpm / 60f);
         print(time_for_beat);
+        GetComponent<soundScript>().PlaySongSound();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            { 
+            Application.Quit();
+        }
+
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             HitTiming timing = HitTiming.Perfect;
@@ -125,10 +131,12 @@ public class TimeManager : MonoBehaviour
                     {
                         case HitTiming.MissEarly:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Miss";
+                            GetComponent<soundScript>().PlayfailSound();
                             break;
 
                         case HitTiming.MissLate:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Miss";
+                            GetComponent<soundScript>().PlayfailSound();
                             break;
 
                         case HitTiming.Perfect:
@@ -153,11 +161,30 @@ public class TimeManager : MonoBehaviour
                         if (current_notes[i].evil)
                         {
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "No";
+                            GetComponent<soundScript>().PlayfailSound();
                             combo_manager.resetCombo();
                         }
                         else
                         {
                             combo_manager.addCombo();
+                            switch (timing)
+                            {
+                                case HitTiming.Perfect:
+                                    GetComponent<soundScript>().PlayPerfectSound();
+                                    not_missed_flag = true;
+                                    break;
+
+                                case HitTiming.Late:
+                                    GetComponent<soundScript>().PlayGoodSound();
+                                    not_missed_flag = true;
+                                    break;
+
+                                case HitTiming.Early:
+                                    not_missed_flag = true;
+                                    GetComponent<soundScript>().PlayGoodSound();
+                                    break;
+
+                            }
                         }   
                     }    
 
