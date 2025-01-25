@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 279302658}
   - component: {fileID: 279302657}
-  - component: {fileID: 279302656}
+  - component: {fileID: 279302659}
   m_Layer: 0
   m_Name: Thing
   m_TagString: Untagged
@@ -137,23 +137,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &279302656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279302655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2460d0895d03d6a49a1650e66892f862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawn_side: 1
-  arrival_bar: 0
-  arrival_beat: 0
-  finished: 0
-  time_target: 2
 --- !u!212 &279302657
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -223,6 +206,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &279302659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279302655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7a19ea336675f48838e6cac444e8d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawn_side: 0
+  arrival_bar: 0
+  arrival_beat: 0
+  finished: 0
+  time_target: 2
+  curveBool: 1
 --- !u!1 &305627702
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,11 +27,12 @@ public class Spawner : MonoBehaviour
         {
             Spawn(SpawnSide.Top);
         }
+        
     }
 
     private void Spawn(SpawnSide spawn_side)
     {
         GameObject go = Instantiate(thing);
-        go.GetComponent<Movement>().spawn_side = spawn_side;
+        go.GetComponent<CurvedProjectilk>().spawn_side = spawn_side;
     }
 }
