@@ -37,6 +37,6 @@ public class NoteBase : MonoBehaviour
             arrival_beat -= 4;
             arrival_bar++;
         }
-        print("bar: " + arrival_bar.ToString() + " beat: " + arrival_beat.ToString());
+        //print("bar: " + arrival_bar.ToString() + " beat: " + arrival_beat.ToString());
     }
 }
