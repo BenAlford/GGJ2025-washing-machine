@@ -22,6 +22,7 @@ public enum HitTiming
 public class TimeManager : MonoBehaviour
 {
     public GameObject note_pref;
+    public GameObject evil_pref;
 
     public GameObject timing_text_pref;
 
@@ -107,6 +108,7 @@ public class TimeManager : MonoBehaviour
                     bar_hit++;
                 }
             }
+            
 
             print("bar hit: " + bar_hit.ToString() + " beat hit: " + beat_hit.ToString());
             for (int i = current_notes.Count - 1; i >= 0; i--)
@@ -133,6 +135,12 @@ public class TimeManager : MonoBehaviour
                             break;
 
                     }
+
+                    if ((timing != HitTiming.Miss) && (current_notes[i].evil))
+                    {
+                        perfect_text.GetComponent<TextMeshProUGUI>().text = "No";
+                    }
+
                     Destroy(current_notes[i].gameObject);
                     current_notes.RemoveAt(i);
                 }
@@ -157,7 +165,21 @@ public class TimeManager : MonoBehaviour
                 while (data[data_index].bar == bar && data[data_index].beat == beat)
                 {
                     pulser.Pulse();
-                    GameObject new_note = Instantiate(note_pref);
+
+                    bool evil = (Random.Range(0, 5) <= 0);
+                    GameObject new_note;
+
+                    if (!evil)
+                    {
+                        new_note = Instantiate(note_pref);
+                    }
+                    else
+                    {
+                        new_note = Instantiate(evil_pref);
+                    }
+                    
+                    new_note.GetComponent<NoteBase>().evil = evil;
+
                     new_note.GetComponent<NoteBase>().spawn_side = data[data_index].side;
                     new_note.GetComponent<NoteBase>().SetArrivalBeat(bar, beat);
                     current_notes.Add(new_note.GetComponent<NoteBase>());

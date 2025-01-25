@@ -9,6 +9,7 @@ public class NoteBase : MonoBehaviour
     public int arrival_beat = 0;
     protected int beats_to_travel = 2;
     public bool finished = false;
+    public bool evil;
 
     // Start is called before the first frame update
     void Start()
