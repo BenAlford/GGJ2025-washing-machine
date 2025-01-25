@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public enum SpawnSide {Left, Right, Top};
-
-public class Movement : NoteBase
+public class CurvedProjectilk : NoteBase
 {
     private Vector2 spawn_loc;
 
@@ -21,7 +18,7 @@ public class Movement : NoteBase
     void Start()
     {
         int bpm = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>().bpm;
-        time_target  = (1f / ((float)bpm / 60f)) * beats_to_travel;
+        time_target = (1f / ((float)bpm / 60f)) * beats_to_travel;
 
         float height = Camera.main.orthographicSize * 2;
         float width = height * Camera.main.aspect;
@@ -30,16 +27,16 @@ public class Movement : NoteBase
         {
             case SpawnSide.Right:
                 transform.position = new Vector2(width / 2, 0f);
-            break;
+                break;
 
-            case SpawnSide.Left:            
+            case SpawnSide.Left:
                 transform.position = new Vector2(width / -2, 0f);
-            break;
-            
+                break;
+
             //Top
             default:
                 transform.position = new Vector2(0f, height / 2);
-            break;
+                break;
 
 
         }
@@ -61,14 +58,25 @@ public class Movement : NoteBase
 
         if (timer >= time_target)
         {
-            transform.position = end_loc;
             finished = true;
         }
 
         else
         {
             transform.position = Vector2.Lerp(spawn_loc, end_loc, timer / time_target);
+
+            switch (spawn_side)
+            {
+                case SpawnSide.Right:
+                    transform.position = new Vector2(transform.position.x, math.sin(transform.position.x / 4) * 3);
+                    break;
+
+                case SpawnSide.Left:
+                    transform.position = new Vector2(transform.position.x, math.sin(transform.position.x / 4) * -3);
+                    break;
+            }
+            
+
         }
     }
 }
-
