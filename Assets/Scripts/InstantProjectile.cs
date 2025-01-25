@@ -31,12 +31,12 @@ public class InstantProjectile : NoteBase
         switch (spawn_side)
         {
             case SpawnSide.Right:
-                transform.position = new Vector2(-4.44f, 1.552678f);
+                transform.position = new Vector2(-4.44f, -0.6510549f);
                 transform.localScale = new Vector3(-1, 1, 1);
                 break;
 
             case SpawnSide.Left:
-                transform.position = new Vector2(4.362289f, 1.552678f);
+                transform.position = new Vector2(4.362289f, -0.6510549f);
                 break;
         }
     }
