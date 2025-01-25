@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class MenuController : MonoBehaviour
@@ -9,16 +10,26 @@ public class MenuController : MonoBehaviour
     [SerializeField] VideoPlayer intro_video_player;
     [SerializeField] VideoPlayer outro_video_player;
     [SerializeField] VideoPlayer loop_video_player;
-    [SerializeField] VideoPlayer cat_fade_in_video_player;
+
+    [SerializeField] RawImage intro_image;
+    [SerializeField] RawImage outro_image;
+    [SerializeField] RawImage loop_image;
 
     private void Start()
     {
         intro_video_player.loopPointReached += introFinished;
+        outro_video_player.loopPointReached += outroFinished;
     }
 
     public void startGame()
     {
-        SceneManager.LoadScene("timertest");
+        //start outro
+        outro_image.gameObject.SetActive(true);
+        outro_video_player.Play();
+
+        //stop loop
+        loop_image.gameObject.SetActive(false);
+        loop_video_player.Stop();        
     }
 
     public void exitGame()
@@ -26,16 +37,19 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
-    private void Update()
-    {
-    }
-
     void introFinished(VideoPlayer video_player)
     {
-        //stop intro, start loop
-        intro_video_player.gameObject.SetActive(false);
-
-        loop_video_player.gameObject.SetActive(true);
+        //start loop
+        loop_image.gameObject.SetActive(true);
         loop_video_player.Play();
+
+        //hide intro
+        intro_image.gameObject.SetActive(false);
+    }
+
+    void outroFinished(VideoPlayer video_player)
+    {
+        //load game
+        SceneManager.LoadScene("timertest");
     }
 }
