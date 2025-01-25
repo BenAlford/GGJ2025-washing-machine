@@ -4,34 +4,15 @@ using UnityEngine;
 
 public enum SpawnSide {Left, Right, Top};
 
-public class Movement : MonoBehaviour
+public class Movement : NoteBase
 {
-
-    public SpawnSide spawn_side;
     private Vector2 spawn_loc;
-
-    public int arrival_bar = 0;
-    public int arrival_beat = 0;
 
     public float time_target;
     private float timer = 0f;
-    int beats_to_travel = 2;
 
-    public bool finished = false;
 
     Vector2 end_loc;
-
-    public void SetArrivalBeat(int current_bar, int current_beat)
-    {
-        arrival_bar = current_bar;
-        arrival_beat = current_beat + beats_to_travel;
-        if (arrival_beat > 4)
-        {
-            arrival_beat -= 4;
-            arrival_bar++;
-        }
-        print("bar: " + arrival_bar.ToString() + " beat: " + arrival_beat.ToString());
-    }
 
     void Start()
     {

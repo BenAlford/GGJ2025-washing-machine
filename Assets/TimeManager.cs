@@ -27,7 +27,7 @@ public class TimeManager : MonoBehaviour
 
     public List<NoteData> data;
 
-    List<Movement> current_notes = new List<Movement>();
+    List<NoteBase> current_notes = new List<NoteBase>();
 
     int data_index = 0;
 
@@ -66,20 +66,20 @@ public class TimeManager : MonoBehaviour
             HitTiming timing = HitTiming.Perfect;
             bool next_beat = false;
 
-            if (beat_timer < 0.075f)
+            if (beat_timer < time_for_beat * 0.075f)
             {
 
             }
-            else if (time_for_beat - beat_timer < 0.075f)
+            else if (time_for_beat - beat_timer < time_for_beat * 0.075f)
             {
                 next_beat = true;
             }
-            else if (beat_timer < 0.25f)
+            else if (beat_timer < time_for_beat * 0.15f)
             {
 
                 timing = HitTiming.Late;
             }
-            else if (time_for_beat - beat_timer < 0.25f)
+            else if (time_for_beat - beat_timer < time_for_beat * 0.15f)
             {
                 next_beat = true;
 
@@ -158,9 +158,9 @@ public class TimeManager : MonoBehaviour
                 {
                     pulser.Pulse();
                     GameObject new_note = Instantiate(note_pref);
-                    new_note.GetComponent<Movement>().spawn_side = data[data_index].side;
-                    new_note.GetComponent<Movement>().SetArrivalBeat(bar, beat);
-                    current_notes.Add(new_note.GetComponent<Movement>());
+                    new_note.GetComponent<NoteBase>().spawn_side = data[data_index].side;
+                    new_note.GetComponent<NoteBase>().SetArrivalBeat(bar, beat);
+                    current_notes.Add(new_note.GetComponent<NoteBase>());
 
                     data_index++;
                     if (data_index >= data.Count)
