@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: ab7e0d76afd8da440a8e525ad5ed0a2c
+guid: 771bca05bb374d246b20c391c575d4dc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4016573512407184299
-    second: Hit_circle_0
+      213: 5747736200360554288
+    second: FEVER_0
+  - first:
+      213: 6354631268418367542
+    second: FEVER_1
+  - first:
+      213: -736431076285257488
+    second: FEVER_2
+  - first:
+      213: -86216758751831224
+    second: FEVER_3
+  - first:
+      213: 4932066644190536569
+    second: FEVER_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -165,13 +177,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hit_circle_0
+      name: FEVER_0
       rect:
         serializedVersion: 2
-        x: 761
-        y: 61
-        width: 512
-        height: 515
+        x: 0
+        y: 1
+        width: 97
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +191,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55c0ab2dba34248c0800000000000000
-      internalID: -4016573512407184299
+      spriteID: 03fe4251f9f04cf40800000000000000
+      internalID: 5747736200360554288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEVER_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 111
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 630baa8687f203850800000000000000
+      internalID: 6354631268418367542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEVER_2
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 1
+        width: 106
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f8657086dba7c5f0800000000000000
+      internalID: -736431076285257488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEVER_3
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 0
+        width: 111
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b59e09052bdcef0800000000000000
+      internalID: -86216758751831224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FEVER_4
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 0
+        width: 138
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 973a78f4b78327440800000000000000
+      internalID: 4932066644190536569
       vertices: []
       indices: 
       edges: []
@@ -196,7 +292,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hit_circle_0: -4016573512407184299
+      FEVER_0: 5747736200360554288
+      FEVER_1: 6354631268418367542
+      FEVER_2: -736431076285257488
+      FEVER_3: -86216758751831224
+      FEVER_4: 4932066644190536569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
