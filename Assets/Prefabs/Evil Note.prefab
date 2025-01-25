@@ -103,5 +103,6 @@ MonoBehaviour:
   arrival_bar: 0
   arrival_beat: 0
   finished: 0
-  evil: 0
+  evil: 1
   time_target: 5
+  curveBool: 1

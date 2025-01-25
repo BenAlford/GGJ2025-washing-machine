@@ -27,6 +27,7 @@ public class TimeManager : MonoBehaviour
     public GameObject evil_pref;
 
     public GameObject timing_text_pref;
+    public ComboManager combo_manager;
 
     public List<NoteData> data;
 
@@ -117,39 +118,48 @@ public class TimeManager : MonoBehaviour
             {
                 if (current_notes[i].arrival_bar == bar_hit && current_notes[i].arrival_beat == beat_hit)
                 {
-                    bool missed_flag = false;
+                    bool not_missed_flag = false;
 
                     perfect_text.GetComponent<TimingTextBehaviour>().Activate();
                     switch (timing)
                     {
                         case HitTiming.MissEarly:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Miss";
-                            missed_flag = true;
                             break;
 
                         case HitTiming.MissLate:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Miss";
-                            missed_flag = true;
                             break;
 
                         case HitTiming.Perfect:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Perfect";
+                            not_missed_flag = true;
                             break;
 
                         case HitTiming.Late:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Late";
+                            not_missed_flag = true;
                             break;
 
                         case HitTiming.Early:
+                            not_missed_flag = true;
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Early";
                             break;
 
                     }
 
-                    if ((!missed_flag) && (current_notes[i].evil))
+                    if (not_missed_flag)
                     {
-                        perfect_text.GetComponent<TextMeshProUGUI>().text = "No";
-                    }
+                        if (current_notes[i].evil)
+                        {
+                            perfect_text.GetComponent<TextMeshProUGUI>().text = "No";
+                            combo_manager.resetCombo();
+                        }
+                        else
+                        {
+                            combo_manager.addCombo();
+                        }   
+                    }             
 
                     current_notes[i].Hit(timing);
                     //Destroy(current_notes[i].gameObject);
@@ -179,7 +189,7 @@ public class TimeManager : MonoBehaviour
                     GameObject new_note;
                     if (data[data_index].note_pref.GetComponent<Movement>() != null)
                     {
-                        bool evil = (Random.Range(0, 5) <= 0);
+                        bool evil = (Random.Range(0, 4) <= 0);
 
                         if (!evil)
                         {
@@ -189,15 +199,12 @@ public class TimeManager : MonoBehaviour
                         {
                             new_note = Instantiate(evil_pref);
                         }
-                        new_note.GetComponent<NoteBase>().evil = evil;
                     }
                     else
                     {
                         new_note = Instantiate(data[data_index].note_pref);
-                        new_note.GetComponent<NoteBase>().evil = false;
                     }
-                   
-
+                    Debug.Log(new_note.GetComponent<NoteBase>().evil);
                     new_note.GetComponent<NoteBase>().spawn_side = data[data_index].side;
                     new_note.GetComponent<NoteBase>().SetArrivalBeat(bar, beat);
                     current_notes.Add(new_note.GetComponent<NoteBase>());
@@ -216,6 +223,10 @@ public class TimeManager : MonoBehaviour
         {
             if (current_notes[i].finished)
             {
+                if (!current_notes[i].evil)
+                {
+                    combo_manager.resetCombo();
+                }                
                 Destroy(current_notes[i].gameObject);
                 current_notes.RemoveAt(i);
             }
