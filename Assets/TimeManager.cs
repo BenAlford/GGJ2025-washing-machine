@@ -23,7 +23,7 @@ public enum HitTiming
 
 public class TimeManager : MonoBehaviour
 {
-    public GameObject note_pref;
+    //public GameObject note_pref;
     public GameObject evil_pref;
 
     public GameObject timing_text_pref;
@@ -69,20 +69,20 @@ public class TimeManager : MonoBehaviour
             HitTiming timing = HitTiming.Perfect;
             bool next_beat = false;
 
-            if (beat_timer < time_for_beat * 0.075f)
+            if (beat_timer < time_for_beat * 0.1f)
             {
 
             }
-            else if (time_for_beat - beat_timer < time_for_beat * 0.075f)
+            else if (time_for_beat - beat_timer < time_for_beat * 0.1f)
             {
                 next_beat = true;
             }
-            else if (beat_timer < time_for_beat * 0.15f)
+            else if (beat_timer < time_for_beat * 0.175f)
             {
 
                 timing = HitTiming.Late;
             }
-            else if (time_for_beat - beat_timer < time_for_beat * 0.15f)
+            else if (time_for_beat - beat_timer < time_for_beat * 0.175f)
             {
                 next_beat = true;
 
@@ -175,21 +175,28 @@ public class TimeManager : MonoBehaviour
             {
                 while (data[data_index].bar == bar && data[data_index].beat == beat)
                 {
-                    pulser.Pulse();
 
-                    bool evil = (Random.Range(0, 5) <= 0);
                     GameObject new_note;
-
-                    if (!evil)
+                    if (data[data_index].note_pref.GetComponent<Movement>() != null)
                     {
-                        new_note = Instantiate(note_pref);
+                        bool evil = (Random.Range(0, 5) <= 0);
+
+                        if (!evil)
+                        {
+                            new_note = Instantiate(data[data_index].note_pref);
+                        }
+                        else
+                        {
+                            new_note = Instantiate(evil_pref);
+                        }
+                        new_note.GetComponent<NoteBase>().evil = evil;
                     }
                     else
                     {
-                        new_note = Instantiate(evil_pref);
+                        new_note = Instantiate(data[data_index].note_pref);
+                        new_note.GetComponent<NoteBase>().evil = false;
                     }
-                    
-                    new_note.GetComponent<NoteBase>().evil = evil;
+                   
 
                     new_note.GetComponent<NoteBase>().spawn_side = data[data_index].side;
                     new_note.GetComponent<NoteBase>().SetArrivalBeat(bar, beat);

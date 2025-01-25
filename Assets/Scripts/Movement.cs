@@ -20,7 +20,7 @@ public class Movement : NoteBase
 
     private void Awake()
     {
-        beats_to_travel = 1;
+        beats_to_travel = 2;
     }
 
     void Start()

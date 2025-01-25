@@ -18,7 +18,7 @@ public class InstantProjectile : NoteBase
 
     private void Awake()
     {
-        beats_to_travel = 3;
+        beats_to_travel = 6;
     }
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class InstantProjectile : NoteBase
         bpm = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>().bpm;
 
         time_target = (1f / ((float)bpm / 60f)) * beats_to_travel;
-        time_target += ((1f / ((float)bpm / 60f)) * 0.15f);
+        time_target += ((1f / ((float)bpm / 60f)) * 0.175f);
 
         switch (spawn_side)
         {
