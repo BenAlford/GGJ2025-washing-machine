@@ -23,7 +23,8 @@ public enum HitTiming
 
 public class TimeManager : MonoBehaviour
 {
-    //public GameObject note_pref;
+    public GameObject note_pref;
+    public GameObject evil_pref;
 
     public GameObject timing_text_pref;
 
@@ -109,21 +110,26 @@ public class TimeManager : MonoBehaviour
                     bar_hit++;
                 }
             }
+            
 
             print("bar hit: " + bar_hit.ToString() + " beat hit: " + beat_hit.ToString());
             for (int i = current_notes.Count - 1; i >= 0; i--)
             {
                 if (current_notes[i].arrival_bar == bar_hit && current_notes[i].arrival_beat == beat_hit)
                 {
+                    bool missed_flag = false;
+
                     perfect_text.GetComponent<TimingTextBehaviour>().Activate();
                     switch (timing)
                     {
                         case HitTiming.MissEarly:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Miss";
+                            missed_flag = true;
                             break;
 
                         case HitTiming.MissLate:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Miss";
+                            missed_flag = true;
                             break;
 
                         case HitTiming.Perfect:
@@ -139,6 +145,12 @@ public class TimeManager : MonoBehaviour
                             break;
 
                     }
+
+                    if ((!missed_flag) && (current_notes[i].evil))
+                    {
+                        perfect_text.GetComponent<TextMeshProUGUI>().text = "No";
+                    }
+
                     current_notes[i].Hit(timing);
                     //Destroy(current_notes[i].gameObject);
                     current_notes.RemoveAt(i);
@@ -164,7 +176,21 @@ public class TimeManager : MonoBehaviour
                 while (data[data_index].bar == bar && data[data_index].beat == beat)
                 {
                     pulser.Pulse();
-                    GameObject new_note = Instantiate(data[data_index].note_pref);
+
+                    bool evil = (Random.Range(0, 5) <= 0);
+                    GameObject new_note;
+
+                    if (!evil)
+                    {
+                        new_note = Instantiate(note_pref);
+                    }
+                    else
+                    {
+                        new_note = Instantiate(evil_pref);
+                    }
+                    
+                    new_note.GetComponent<NoteBase>().evil = evil;
+
                     new_note.GetComponent<NoteBase>().spawn_side = data[data_index].side;
                     new_note.GetComponent<NoteBase>().SetArrivalBeat(bar, beat);
                     current_notes.Add(new_note.GetComponent<NoteBase>());

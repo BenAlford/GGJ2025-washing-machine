@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4830362482562247944}
   - component: {fileID: 1391200545899602158}
   m_Layer: 0
-  m_Name: Thing
+  m_Name: Evil Note
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,4 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn_side: 2
+  arrival_bar: 0
+  arrival_beat: 0
+  finished: 0
+  evil: 0
   time_target: 5
