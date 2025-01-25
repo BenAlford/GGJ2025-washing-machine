@@ -23,9 +23,11 @@ public class TimeManager : MonoBehaviour
 {
     public GameObject note_pref;
 
+    public GameObject timing_text_pref;
+
     public List<NoteData> data;
 
-    List<Movement> current_notes = new List<Movement>();
+    List<NoteBase> current_notes = new List<NoteBase>();
 
     int data_index = 0;
 
@@ -40,7 +42,7 @@ public class TimeManager : MonoBehaviour
 
     public TextMeshProUGUI bar_text;
     public TextMeshProUGUI beat_text;
-    public TextMeshProUGUI perfect_text;
+    public GameObject perfect_text;
 
     public PulseCheck pulser;
 
@@ -64,37 +66,31 @@ public class TimeManager : MonoBehaviour
             HitTiming timing = HitTiming.Perfect;
             bool next_beat = false;
 
-            if (beat_timer < 0.125f)
+            if (beat_timer < time_for_beat * 0.075f)
             {
-                perfect_text.text = "perfect";
 
             }
-            else if (time_for_beat - beat_timer < 0.125f)
+            else if (time_for_beat - beat_timer < time_for_beat * 0.075f)
             {
-                perfect_text.text = "perfect";
                 next_beat = true;
             }
-            else if (beat_timer < 0.25f)
+            else if (beat_timer < time_for_beat * 0.15f)
             {
-                perfect_text.text = "late";
 
                 timing = HitTiming.Late;
             }
-            else if (time_for_beat - beat_timer < 0.25f)
+            else if (time_for_beat - beat_timer < time_for_beat * 0.15f)
             {
-                perfect_text.text = "early";
                 next_beat = true;
 
                 timing = HitTiming.Early;
             }
             else if (beat_timer < time_for_beat / 2)
             {
-                perfect_text.text = "bad";
                 timing = HitTiming.Miss;
             }
             else
             {
-                perfect_text.text = "bad";
                 timing = HitTiming.Miss;
                 next_beat = true;
             }
@@ -117,7 +113,26 @@ public class TimeManager : MonoBehaviour
             {
                 if (current_notes[i].arrival_bar == bar_hit && current_notes[i].arrival_beat == beat_hit)
                 {
-                    print("YIPPPEEE!!!");
+                    perfect_text.GetComponent<TimingTextBehaviour>().Activate();
+                    switch (timing)
+                    {
+                        case HitTiming.Miss:
+                            perfect_text.GetComponent<TextMeshProUGUI>().text = "Miss";
+                            break;
+
+                        case HitTiming.Perfect:
+                            perfect_text.GetComponent<TextMeshProUGUI>().text = "Perfect";
+                            break;
+
+                        case HitTiming.Late:
+                            perfect_text.GetComponent<TextMeshProUGUI>().text = "Late";
+                            break;
+
+                        case HitTiming.Early:
+                            perfect_text.GetComponent<TextMeshProUGUI>().text = "Early";
+                            break;
+
+                    }
                     Destroy(current_notes[i].gameObject);
                     current_notes.RemoveAt(i);
                 }
@@ -143,9 +158,9 @@ public class TimeManager : MonoBehaviour
                 {
                     pulser.Pulse();
                     GameObject new_note = Instantiate(note_pref);
-                    new_note.GetComponent<Movement>().spawn_side = data[data_index].side;
-                    new_note.GetComponent<Movement>().SetArrivalBeat(bar, beat);
-                    current_notes.Add(new_note.GetComponent<Movement>());
+                    new_note.GetComponent<NoteBase>().spawn_side = data[data_index].side;
+                    new_note.GetComponent<NoteBase>().SetArrivalBeat(bar, beat);
+                    current_notes.Add(new_note.GetComponent<NoteBase>());
 
                     data_index++;
                     if (data_index >= data.Count)
