@@ -159,7 +159,12 @@ public class TimeManager : MonoBehaviour
                         {
                             combo_manager.addCombo();
                         }   
-                    }             
+                    }    
+
+                    else
+                    {
+                        combo_manager.resetCombo();
+                    }         
 
                     current_notes[i].Hit(timing);
                     //Destroy(current_notes[i].gameObject);
