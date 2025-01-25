@@ -47,7 +47,7 @@ public class TimeManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (beat_timer < 0.15f || time_for_beat - beat_timer < 0.15f )
+            if (beat_timer < 0.125f || time_for_beat - beat_timer < 0.125f )
             {
                 perfect_text.text = "perfect";
             }
@@ -65,6 +65,7 @@ public class TimeManager : MonoBehaviour
             }
         }
         beat_timer += Time.deltaTime;
+
         if (beat_timer > time_for_beat)
         {
             beat++;
