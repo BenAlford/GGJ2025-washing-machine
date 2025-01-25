@@ -23,6 +23,11 @@ public class NoteBase : MonoBehaviour
         
     }
 
+    virtual public void Hit(HitTiming timing)
+    {
+        Destroy(gameObject);
+    }
+
     public void SetArrivalBeat(int current_bar, int current_beat)
     {
         arrival_bar = current_bar;
