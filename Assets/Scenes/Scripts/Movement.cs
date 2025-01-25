@@ -14,6 +14,11 @@ public class Movement : NoteBase
 
     Vector2 end_loc;
 
+    private void Awake()
+    {
+        beats_to_travel = 1;
+    }
+
     void Start()
     {
         int bpm = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>().bpm;

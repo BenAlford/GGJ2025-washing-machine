@@ -828,6 +828,18 @@ MonoBehaviour:
     beat: 1
     side: 0
     note_pref: {fileID: 8483247399554237073, guid: 98b59262673073746bd3509a6d3f8c6f, type: 3}
+  - bar: 3
+    beat: 1
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
+  - bar: 4
+    beat: 2
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
+  - bar: 4
+    beat: 3
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
   bpm: 60
   bar_text: {fileID: 1269403604}
   beat_text: {fileID: 1057536069}
