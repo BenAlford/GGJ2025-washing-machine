@@ -222,6 +222,7 @@ MonoBehaviour:
   arrival_bar: 0
   arrival_beat: 0
   finished: 0
+  evil: 0
   time_target: 2
   curveBool: 1
 --- !u!1 &305627702
@@ -811,37 +812,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d04881035b84bf40961c6e3bf4f3209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  evil_pref: {fileID: 4411471043237673325, guid: dd5b7865aec073c458409a110eb9d37a, type: 3}
   timing_text_pref: {fileID: 0}
   data:
-  - bar: 1
+  - bar: 2
     beat: 4
     side: 0
     note_pref: {fileID: 8483247399554237073, guid: 98b59262673073746bd3509a6d3f8c6f, type: 3}
-  - bar: 1
-    beat: 4
-    side: 1
-    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
   - bar: 2
     beat: 4
     side: 1
-    note_pref: {fileID: 8483247399554237073, guid: 98b59262673073746bd3509a6d3f8c6f, type: 3}
+    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
   - bar: 3
-    beat: 1
-    side: 0
-    note_pref: {fileID: 8483247399554237073, guid: 98b59262673073746bd3509a6d3f8c6f, type: 3}
-  - bar: 3
-    beat: 1
+    beat: 2
     side: 1
     note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
-  - bar: 4
-    beat: 2
-    side: 0
-    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
-  - bar: 4
+  - bar: 3
     beat: 3
     side: 0
-    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
-  bpm: 60
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 3
+    beat: 4
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  bpm: 120
   bar_text: {fileID: 1269403604}
   beat_text: {fileID: 1057536069}
   perfect_text: {fileID: 639281548}
