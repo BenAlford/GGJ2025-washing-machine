@@ -55,6 +55,7 @@ public class TimeManager : MonoBehaviour
     int bad_count = 0;
 
     bool faster = false;
+    public bool get_faster = true;
 
     float perfect_window = 0.1f;
     float good_window = 0.175f;
@@ -220,7 +221,7 @@ public class TimeManager : MonoBehaviour
             beat_text.text = beat.ToString();
             beat_timer -= time_for_beat;
 
-            if (bar == 31 && beat == 1)
+            if (get_faster && bar == 31 && beat == 1)
             {
                 bpm *= 2;
                 time_for_beat = 1f / ((float)bpm / 60f);
