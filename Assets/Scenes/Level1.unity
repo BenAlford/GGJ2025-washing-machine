@@ -1040,11 +1040,17 @@ MonoBehaviour:
     beat: 2
     side: 0
     note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
+  beat_timer: 0
+  time_for_beat: 0
   bpm: 120
   bar_text: {fileID: 1269403604}
   beat_text: {fileID: 1057536069}
   perfect_text: {fileID: 639281548}
   pulser: {fileID: 305627705}
+  perfect_count: 0
+  ok_count: 0
+  bad_count: 0
+  level: 1
 --- !u!4 &1180725027
 Transform:
   m_ObjectHideFlags: 0

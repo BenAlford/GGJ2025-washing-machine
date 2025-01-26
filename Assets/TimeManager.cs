@@ -54,6 +54,7 @@ public class TimeManager : MonoBehaviour
     public int perfect_count = 0;
     public int ok_count = 0;
     public int bad_count = 0;
+    public int level; // set in editor
 
     // Start is called before the first frame update
     void Start()
@@ -275,6 +276,7 @@ public class TimeManager : MonoBehaviour
         // 2 bar after the last note started
         if (bar > song_length + 2)
         {
+            GlobalData.level = level;
             SceneManager.LoadScene("End Menu");
         }
 

@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 6c3b4040ebb299f4689be3f36652effb
   - enabled: 1
-    path: Assets/Scenes/timertest.unity
+    path: Assets/Scenes/Level1.unity
     guid: c513f7ea1956a64469985ac64608f26f
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: edb6a4a247621ec498c483dabe264b2a
+  - enabled: 1
+    path: Assets/Scenes/End Menu.unity
+    guid: 32ce01688e83abb45bafd04d300b774f
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
