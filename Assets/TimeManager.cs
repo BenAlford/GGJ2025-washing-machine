@@ -91,11 +91,12 @@ public class TimeManager : MonoBehaviour
 
             if (beat_timer < time_for_beat * 0.1f)
             {
-
+                perfect_count++;
             }
             else if (time_for_beat - beat_timer < time_for_beat * 0.1f)
             {
                 next_beat = true;
+                perfect_count++;
             }
             else if (beat_timer < time_for_beat * 0.175f)
             {
