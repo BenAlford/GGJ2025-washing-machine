@@ -31,7 +31,7 @@ public class EndMenuManagement : MonoBehaviour
 
         int finalscore = (GlobalData.perfect_count * 10) + (GlobalData.ok_count * 5) - (GlobalData.bad_count * 5);
         // The variables contained within the GlobalData need to be public?
-        DisplayHighScore.text = "Highest Combo Score: " + GlobalData.time_for_beat;
+        DisplayHighScore.text = "Highest Combo: " + GlobalData.combo;
 
         DisplayPlayerScore.text = "Final Score: " + finalscore;
         DisplayPerfectScore.text = "Perfect Amount: " + GlobalData.perfect_count + "x";

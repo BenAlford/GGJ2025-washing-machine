@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 873179193}
   - component: {fileID: 873179196}
   m_Layer: 5
-  m_Name: Timing text (1)
+  m_Name: ComboManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,6 +6,7 @@ using UnityEngine;
 public class ComboManager : MonoBehaviour
 {
     private int combo = 0;
+    private int highest_combo = 0;
 
     void Start()
     {
@@ -22,11 +23,26 @@ public class ComboManager : MonoBehaviour
         
         combo++;
         updateText();
+
+        if (combo > highest_combo)
+        {
+            highest_combo = combo;
+        }
     }
 
     public void resetCombo()
     {
         combo = 0;
         updateText();
+    }
+
+    public int getCombo()
+    {
+        return combo;
+    }
+
+    public int getHigh()
+    {
+        return highest_combo;
     }
 }

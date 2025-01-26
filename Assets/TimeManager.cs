@@ -283,7 +283,7 @@ public class TimeManager : MonoBehaviour
         // 2 bar after the last note started
         if (bar > song_length + 2)
         {
-            GlobalData.setData(level, perfect_count, ok_count, bad_count, time_for_beat);
+            GlobalData.setData(level, perfect_count, ok_count, bad_count, combo_manager.getHigh());
             SceneManager.LoadScene("End Menu");
         }
 

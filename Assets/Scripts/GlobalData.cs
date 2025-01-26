@@ -8,7 +8,7 @@ public static class GlobalData
     public static int perfect_count;
     public static int ok_count;
     public static int bad_count;
-    public static float time_for_beat;
+    public static float combo;
 
     public static void setData(int lvl, int per, int ok, int bad, float tfb)
     {
@@ -16,6 +16,6 @@ public static class GlobalData
         perfect_count = per;
         ok_count = ok;
         bad_count = bad;
-        time_for_beat = tfb;
+        combo = tfb;
     }
 }
