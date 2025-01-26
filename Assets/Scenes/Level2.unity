@@ -1040,13 +1040,141 @@ MonoBehaviour:
     beat: 3
     side: 1
     note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
-  - bar: 8
+  - bar: 10
     beat: 3
     side: 0
     note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
-  - bar: 8
+  - bar: 11
+    beat: 1
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 11
     beat: 3
     side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 12
+    beat: 2
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: dd5b7865aec073c458409a110eb9d37a, type: 3}
+  - bar: 12
+    beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
+  - bar: 12
+    beat: 4
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: dd5b7865aec073c458409a110eb9d37a, type: 3}
+  - bar: 13
+    beat: 1
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
+  - bar: 13
+    beat: 2
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: dd5b7865aec073c458409a110eb9d37a, type: 3}
+  - bar: 13
+    beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
+  - bar: 13
+    beat: 4
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: dd5b7865aec073c458409a110eb9d37a, type: 3}
+  - bar: 14
+    beat: 1
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
+  - bar: 14
+    beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 15
+    beat: 3
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 15
+    beat: 4
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 16
+    beat: 2
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 16
+    beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 16
+    beat: 4
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 17
+    beat: 1
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 17
+    beat: 2
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 17
+    beat: 3
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 18
+    beat: 2
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 18
+    beat: 3
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 18
+    beat: 4
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 19
+    beat: 1
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 19
+    beat: 2
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 19
+    beat: 3
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 20
+    beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 21
+    beat: 1
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 21
+    beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 22
+    beat: 2
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 22
+    beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 23
+    beat: 1
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 23
+    beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 23
+    beat: 4
+    side: 1
     note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
   bpm: 240
   bar_text: {fileID: 1269403604}
