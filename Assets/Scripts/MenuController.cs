@@ -28,7 +28,6 @@ public class MenuController : MonoBehaviour
         outro_video_player.Play();
 
         //stop loop
-        loop_image.gameObject.SetActive(false);
         loop_video_player.Stop();        
     }
 
@@ -42,9 +41,6 @@ public class MenuController : MonoBehaviour
         //start loop
         loop_image.gameObject.SetActive(true);
         loop_video_player.Play();
-
-        //hide intro
-        intro_image.gameObject.SetActive(false);
     }
 
     void outroFinished(VideoPlayer video_player)
