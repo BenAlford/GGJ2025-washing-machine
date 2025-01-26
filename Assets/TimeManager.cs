@@ -63,7 +63,7 @@ public class TimeManager : MonoBehaviour
     {
         time_for_beat = 1f / ((float)bpm / 60f);
         print(time_for_beat);
-        GetComponent<soundScript>().PlaySongSound();
+        // GetComponent<soundScript>().PlaySongSound();
 
         song_length = 0;
         foreach (var i in data)
