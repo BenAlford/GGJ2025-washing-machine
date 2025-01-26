@@ -8,6 +8,11 @@ public class ComboManager : MonoBehaviour
     private int combo = 0;
     private int highest_combo = 0;
 
+    public GameObject layer1;
+    public GameObject layer2;
+    public GameObject layer3;
+    public GameObject layer4;
+
     void Start()
     {
         updateText();
@@ -23,6 +28,23 @@ public class ComboManager : MonoBehaviour
 
         combo++;
         updateText();
+        if (combo == 5)
+        {
+            layer1.SetActive(true);
+        }
+        if (combo == 10)
+        {
+            layer2.SetActive(true);
+        }
+        if (combo == 15)
+        {
+            layer3.SetActive(true);
+        }
+        if (combo == 20)
+        {
+            layer4.SetActive(true);
+        }
+
 
         if (combo > highest_combo)
         {
@@ -34,6 +56,11 @@ public class ComboManager : MonoBehaviour
     {
         combo = 0;
         updateText();
+
+        layer1.SetActive(false);
+        layer2.SetActive(false);
+        layer3.SetActive(false);
+        layer4.SetActive(false);
     }
 
     public int getCombo()

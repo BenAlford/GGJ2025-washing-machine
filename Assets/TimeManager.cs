@@ -55,6 +55,8 @@ public class TimeManager : MonoBehaviour
     public int ok_count = 0;
     public int bad_count = 0;
 
+    public int level = 1;
+
     
 
     bool faster = false;
@@ -64,6 +66,8 @@ public class TimeManager : MonoBehaviour
     float good_window = 0.175f;
 
     int window_mult = 1;
+
+    [SerializeField] CatAnimatorManager cat;
 
     // Start is called before the first frame update
     void Start()
@@ -108,24 +112,20 @@ public class TimeManager : MonoBehaviour
             {
 
                 timing = HitTiming.Late;
-                ok_count++;
             }
             else if (time_for_beat - beat_timer < time_for_beat * (good_window * window_mult))
             {
                 next_beat = true;
 
                 timing = HitTiming.Early;
-                ok_count++;
             }
             else if (beat_timer < time_for_beat / 2)
             {
                 timing = HitTiming.MissLate;
-                bad_count++;
             }
             else
             {
                 timing = HitTiming.MissEarly;
-                bad_count++;
                 next_beat = true;
             }
 
@@ -156,26 +156,36 @@ public class TimeManager : MonoBehaviour
                         case HitTiming.MissEarly:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Miss";
                             GetComponent<soundScript>().PlayfailSound();
+                            bad_count++;
+                            cat.setCatState(CatAnimatorManager.CatState.ANGRY);
                             break;
 
                         case HitTiming.MissLate:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Miss";
                             GetComponent<soundScript>().PlayfailSound();
+                            bad_count++;
+                            cat.setCatState(CatAnimatorManager.CatState.ANGRY);
                             break;
 
                         case HitTiming.Perfect:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Perfect";
                             not_missed_flag = true;
+                            perfect_count++;
+                            cat.setCatState(CatAnimatorManager.CatState.HAPPY);
                             break;
 
                         case HitTiming.Late:
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Late";
                             not_missed_flag = true;
+                            ok_count++;
+                            cat.setCatState(CatAnimatorManager.CatState.NEUTRAL);
                             break;
 
                         case HitTiming.Early:
                             not_missed_flag = true;
                             perfect_text.GetComponent<TextMeshProUGUI>().text = "Early";
+                            ok_count++;
+                            cat.setCatState(CatAnimatorManager.CatState.NEUTRAL);
                             break;
 
                     }
@@ -295,11 +305,12 @@ public class TimeManager : MonoBehaviour
             }
         }
 
-        // 2 bar after the last note started
         if (bar > song_length + 2)
         {
+            GlobalData.setData(level, perfect_count, ok_count, bad_count, combo_manager.getHigh());
             SceneManager.LoadScene("End Menu");
         }
+
 
     }
 }
