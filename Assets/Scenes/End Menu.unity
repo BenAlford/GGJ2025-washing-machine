@@ -751,6 +751,7 @@ MonoBehaviour:
   perfect_count: 0
   ok_count: 0
   bad_count: 0
+  get_faster: 1
 --- !u!1 &1096865392
 GameObject:
   m_ObjectHideFlags: 0
