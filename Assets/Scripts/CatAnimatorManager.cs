@@ -28,19 +28,6 @@ public class CatAnimatorManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            cat_state = CatState.HAPPY;
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            cat_state = CatState.ANGRY;
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            cat_state = CatState.NEUTRAL;
-        }
-
         timer += Time.deltaTime;
 
         if (timer > time_for_beat)
