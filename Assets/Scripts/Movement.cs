@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public enum SpawnSide {Left, Right, Top};
 
@@ -11,8 +13,15 @@ public class Movement : NoteBase
     public float time_target;
     private float timer = 0f;
 
+    public bool curveBool = true;
+
 
     Vector2 end_loc;
+
+    private void Awake()
+    {
+        beats_to_travel = 2;
+    }
 
     void Start()
     {
@@ -36,6 +45,8 @@ public class Movement : NoteBase
             default:
                 transform.position = new Vector2(0f, height / 2);
             break;
+
+
         }
 
         spawn_loc = transform.position;
@@ -59,7 +70,7 @@ public class Movement : NoteBase
             finished = true;
         }
 
-        else 
+        else
         {
             transform.position = Vector2.Lerp(spawn_loc, end_loc, timer / time_target);
         }

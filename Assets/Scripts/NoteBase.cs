@@ -7,7 +7,7 @@ public class NoteBase : MonoBehaviour
     public SpawnSide spawn_side;
     public int arrival_bar = 0;
     public int arrival_beat = 0;
-    protected int beats_to_travel = 2;
+    protected int beats_to_travel = 4;
     public bool finished = false;
     public bool evil;
 
@@ -32,11 +32,11 @@ public class NoteBase : MonoBehaviour
     {
         arrival_bar = current_bar;
         arrival_beat = current_beat + beats_to_travel;
-        if (arrival_beat > 4)
+        while (arrival_beat > 4)
         {
             arrival_beat -= 4;
             arrival_bar++;
         }
-        print("bar: " + arrival_bar.ToString() + " beat: " + arrival_beat.ToString());
+        //print("bar: " + arrival_bar.ToString() + " beat: " + arrival_beat.ToString());
     }
 }
