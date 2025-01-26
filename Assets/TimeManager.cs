@@ -54,6 +54,13 @@ public class TimeManager : MonoBehaviour
     int ok_count = 0;
     int bad_count = 0;
 
+    bool faster = false;
+
+    float perfect_window = 0.1f;
+    float good_window = 0.175f;
+
+    int window_mult = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,20 +83,20 @@ public class TimeManager : MonoBehaviour
             HitTiming timing = HitTiming.Perfect;
             bool next_beat = false;
 
-            if (beat_timer < time_for_beat * 0.1f)
+            if (beat_timer < time_for_beat * (perfect_window * window_mult))
             {
 
             }
-            else if (time_for_beat - beat_timer < time_for_beat * 0.1f)
+            else if (time_for_beat - beat_timer < time_for_beat * (perfect_window * window_mult))
             {
                 next_beat = true;
             }
-            else if (beat_timer < time_for_beat * 0.175f)
+            else if (beat_timer < time_for_beat * (good_window * window_mult))
             {
 
                 timing = HitTiming.Late;
             }
-            else if (time_for_beat - beat_timer < time_for_beat * 0.175f)
+            else if (time_for_beat - beat_timer < time_for_beat * (good_window * window_mult))
             {
                 next_beat = true;
 
@@ -213,6 +220,14 @@ public class TimeManager : MonoBehaviour
             beat_text.text = beat.ToString();
             beat_timer -= time_for_beat;
 
+            if (bar == 31 && beat == 1)
+            {
+                bpm *= 2;
+                time_for_beat = 1f / ((float)bpm / 60f);
+                faster = true;
+                window_mult = 2;
+            }
+
             if (running)
             {
                 while (data[data_index].bar == bar && data[data_index].beat == beat)
@@ -221,7 +236,8 @@ public class TimeManager : MonoBehaviour
                     GameObject new_note;
                     if (data[data_index].note_pref.GetComponent<Movement>() != null)
                     {
-                        bool evil = (Random.Range(0, 4) <= 0);
+                        //bool evil = (Random.Range(0, 4) <= 0);
+                        bool evil = false;
 
                         if (!evil)
                         {
@@ -238,7 +254,7 @@ public class TimeManager : MonoBehaviour
                     }
                     Debug.Log(new_note.GetComponent<NoteBase>().evil);
                     new_note.GetComponent<NoteBase>().spawn_side = data[data_index].side;
-                    new_note.GetComponent<NoteBase>().SetArrivalBeat(bar, beat);
+                    new_note.GetComponent<NoteBase>().SetArrivalBeat(bar, beat, faster);
                     current_notes.Add(new_note.GetComponent<NoteBase>());
 
                     data_index++;
