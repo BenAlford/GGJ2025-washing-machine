@@ -37,8 +37,8 @@ public class TimeManager : MonoBehaviour
     int bar = 1;
     int beat = 1;
 
-    float beat_timer = 0;
-    float time_for_beat = 0;
+    public float beat_timer = 0;
+    public float time_for_beat = 0;
 
     public int bpm;
     bool running = true;
@@ -49,9 +49,9 @@ public class TimeManager : MonoBehaviour
 
     public PulseCheck pulser;
 
-    int perfect_count = 0;
-    int ok_count = 0;
-    int bad_count = 0;
+    public int perfect_count = 0;
+    public int ok_count = 0;
+    public int bad_count = 0;
 
 
     // Start is called before the first frame update
