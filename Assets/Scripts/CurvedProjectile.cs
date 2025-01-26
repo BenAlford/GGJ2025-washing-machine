@@ -27,10 +27,12 @@ public class CurvedProjectilk : NoteBase
         {
             case SpawnSide.Right:
                 transform.position = new Vector2(width / 2, 0f);
+                transform.position = new Vector2(transform.position.x, math.sin(transform.position.x / 4) * 3);
                 break;
 
             case SpawnSide.Left:
                 transform.position = new Vector2(width / -2, 0f);
+                transform.position = new Vector2(transform.position.x, math.sin(transform.position.x / 4) * -3);
                 break;
 
             //Top

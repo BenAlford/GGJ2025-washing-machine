@@ -980,75 +980,75 @@ MonoBehaviour:
   timing_text_pref: {fileID: 0}
   combo_manager: {fileID: 873179196}
   data:
-  - bar: 1
-    beat: 2
-    side: 1
-    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
-  - bar: 1
-    beat: 4
+  - bar: 2
+    beat: 3
     side: 0
-    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
-  - bar: 2
-    beat: 2
-    side: 1
-    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
-  - bar: 2
-    beat: 4
-    side: 1
     note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
   - bar: 3
     beat: 1
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 3
+    beat: 3
     side: 0
     note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
   - bar: 4
-    beat: 1
-    side: 0
-    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
-  - bar: 4
-    beat: 3
-    side: 1
-    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
-  - bar: 5
-    beat: 1
-    side: 1
-    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
-  - bar: 5
     beat: 3
     side: 1
     note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
   - bar: 5
-    beat: 3
+    beat: 1
     side: 0
     note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
   - bar: 5
+    beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 7
+    beat: 1
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: dd5b7865aec073c458409a110eb9d37a, type: 3}
+  - bar: 7
+    beat: 2
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
+  - bar: 7
+    beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: dd5b7865aec073c458409a110eb9d37a, type: 3}
+  - bar: 7
     beat: 4
     side: 1
-    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
-  - bar: 6
-    beat: 2
-    side: 0
-    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
-  - bar: 6
-    beat: 3
-    side: 1
     note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
-  - bar: 7
+  - bar: 8
     beat: 1
     side: 0
-    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
-  - bar: 7
+    note_pref: {fileID: 4411471043237673325, guid: dd5b7865aec073c458409a110eb9d37a, type: 3}
+  - bar: 8
     beat: 2
-    side: 1
+    side: 0
     note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
   - bar: 8
     beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 9
+    beat: 1
     side: 0
-    note_pref: {fileID: 4411471043237673325, guid: 5f93a327930c65f4baf8c868f3feb8b9, type: 3}
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  - bar: 9
+    beat: 3
+    side: 1
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
   - bar: 8
     beat: 3
     side: 0
     note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
-  bpm: 120
+  - bar: 8
+    beat: 3
+    side: 0
+    note_pref: {fileID: 4411471043237673325, guid: 93d5cfb61b990c84f86a78a5f43801d6, type: 3}
+  bpm: 240
   bar_text: {fileID: 1269403604}
   beat_text: {fileID: 1057536069}
   perfect_text: {fileID: 639281548}
