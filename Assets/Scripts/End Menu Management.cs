@@ -24,13 +24,14 @@ public class EndMenuManagement : MonoBehaviour
         string HighScore = "10";
         int UserScore = 5;
 
+        int finalscore = (timeManager.perfect_count * 10) + (timeManager.ok_count * 5) - (timeManager.bad_count * 5);
         // The variables contained within the timeManager need to be public?
-        DisplayHighScore.text = "High Score: " + timeManager.time_for_beat;
+        DisplayHighScore.text = "Highest Combo Score: " + timeManager.time_for_beat;
 
-        DisplayPlayerScore.text = "Player Score: " + timeManager.beat_timer;
-        DisplayPerfectScore.text = "Perfect Amount: x" + timeManager.perfect_count;
-        DisplayGoodScore.text = "Good Amount: x" + timeManager.ok_count;
-        DisplayBadScore.text = "Bad Amount: x" + timeManager.bad_count;
+        DisplayPlayerScore.text = "Final Score: " + finalscore;
+        DisplayPerfectScore.text = "Perfect Amount: " + timeManager.perfect_count + "x";
+        DisplayGoodScore.text = "Good Amount: " + timeManager.ok_count + "x";
+        DisplayBadScore.text = "Bad Amount: " + timeManager.bad_count + "x";
     }
 
     public void RestartGame()

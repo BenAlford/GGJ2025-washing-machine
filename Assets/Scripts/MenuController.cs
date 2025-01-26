@@ -46,7 +46,7 @@ public class MenuController : MonoBehaviour
         {
             timer -= Time.deltaTime;
             if (timer < 0)
-                SceneManager.LoadScene("Level2");
+                SceneManager.LoadScene("timertest");
         }
     }
 
