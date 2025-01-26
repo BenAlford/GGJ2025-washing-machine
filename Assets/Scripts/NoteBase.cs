@@ -28,8 +28,12 @@ public class NoteBase : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void SetArrivalBeat(int current_bar, int current_beat)
+    public void SetArrivalBeat(int current_bar, int current_beat, bool faster)
     {
+        if (faster)
+        {
+            beats_to_travel *= 2;
+        }
         arrival_bar = current_bar;
         arrival_beat = current_beat + beats_to_travel;
         while (arrival_beat > 4)

@@ -27,17 +27,17 @@ public class soundScript : MonoBehaviour
 
     public void PlayPerfectSound()
     {
-        audioSource.PlayOneShot(successSound);
+        audioSource.PlayOneShot(successSound, 3);
     }
 
     public void PlayfailSound()
     {
-        audioSource.PlayOneShot(failSound);
+        audioSource.PlayOneShot(failSound, 1.5f);
     }
 
     public void PlayGoodSound()
     {
-        audioSource.PlayOneShot(goodSound);
+        audioSource.PlayOneShot(goodSound,8);
     }
 
     public void PlayFatalSound()
