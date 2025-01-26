@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct NoteData
@@ -30,16 +31,16 @@ public class TimeManager : MonoBehaviour
     public ComboManager combo_manager;
 
     public List<NoteData> data;
-
     List<NoteBase> current_notes = new List<NoteBase>();
 
     int data_index = 0;
 
     int bar = 1;
     int beat = 1;
+    private int song_length;
 
-    float beat_timer = 0;
-    float time_for_beat = 0;
+    public float beat_timer = 0;
+    public float time_for_beat = 0;
 
     public int bpm;
     bool running = true;
@@ -50,9 +51,11 @@ public class TimeManager : MonoBehaviour
 
     public PulseCheck pulser;
 
-    int perfect_count = 0;
-    int ok_count = 0;
-    int bad_count = 0;
+    public int perfect_count = 0;
+    public int ok_count = 0;
+    public int bad_count = 0;
+
+    
 
     bool faster = false;
     public bool get_faster = true;
@@ -68,6 +71,15 @@ public class TimeManager : MonoBehaviour
         time_for_beat = 1f / ((float)bpm / 60f);
         print(time_for_beat);
         GetComponent<soundScript>().PlaySongSound();
+
+        song_length = 0;
+        foreach (var i in data)
+        {
+            if (song_length < i.bar)
+            {
+                song_length = i.bar;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -96,20 +108,24 @@ public class TimeManager : MonoBehaviour
             {
 
                 timing = HitTiming.Late;
+                ok_count++;
             }
             else if (time_for_beat - beat_timer < time_for_beat * (good_window * window_mult))
             {
                 next_beat = true;
 
                 timing = HitTiming.Early;
+                ok_count++;
             }
             else if (beat_timer < time_for_beat / 2)
             {
                 timing = HitTiming.MissLate;
+                bad_count++;
             }
             else
             {
                 timing = HitTiming.MissEarly;
+                bad_count++;
                 next_beat = true;
             }
 
@@ -253,11 +269,9 @@ public class TimeManager : MonoBehaviour
                     {
                         new_note = Instantiate(data[data_index].note_pref);
                     }
-                    Debug.Log(new_note.GetComponent<NoteBase>().evil);
                     new_note.GetComponent<NoteBase>().spawn_side = data[data_index].side;
                     new_note.GetComponent<NoteBase>().SetArrivalBeat(bar, beat, faster);
                     current_notes.Add(new_note.GetComponent<NoteBase>());
-
                     data_index++;
                     if (data_index >= data.Count)
                     {
@@ -279,6 +293,12 @@ public class TimeManager : MonoBehaviour
                 Destroy(current_notes[i].gameObject);
                 current_notes.RemoveAt(i);
             }
+        }
+
+        // 2 bar after the last note started
+        if (bar > song_length + 2)
+        {
+            SceneManager.LoadScene("End Menu");
         }
 
     }
