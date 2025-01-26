@@ -29,14 +29,14 @@ public class EndMenuManagement : MonoBehaviour
 
         DisplayLevel.text = "Level " + GlobalData.level;
 
-        int finalscore = (timeManager.perfect_count * 10) + (timeManager.ok_count * 5) - (timeManager.bad_count * 5);
-        // The variables contained within the timeManager need to be public?
-        DisplayHighScore.text = "Highest Combo Score: " + timeManager.time_for_beat;
+        int finalscore = (GlobalData.perfect_count * 10) + (GlobalData.ok_count * 5) - (GlobalData.bad_count * 5);
+        // The variables contained within the GlobalData need to be public?
+        DisplayHighScore.text = "Highest Combo Score: " + GlobalData.time_for_beat;
 
         DisplayPlayerScore.text = "Final Score: " + finalscore;
-        DisplayPerfectScore.text = "Perfect Amount: " + timeManager.perfect_count + "x";
-        DisplayGoodScore.text = "Good Amount: " + timeManager.ok_count + "x";
-        DisplayBadScore.text = "Bad Amount: " + timeManager.bad_count + "x";
+        DisplayPerfectScore.text = "Perfect Amount: " + GlobalData.perfect_count + "x";
+        DisplayGoodScore.text = "Good Amount: " + GlobalData.ok_count + "x";
+        DisplayBadScore.text = "Bad Amount: " + GlobalData.bad_count + "x";
     }
 
     public void RestartGame()
