@@ -45,7 +45,6 @@ public class MenuController : MonoBehaviour
 
     void outroFinished(VideoPlayer video_player)
     {
-        //load game
         SceneManager.LoadScene("timertest");
     }
 }

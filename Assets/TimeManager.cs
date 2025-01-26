@@ -54,6 +54,9 @@ public class TimeManager : MonoBehaviour
     public int perfect_count = 0;
     public int ok_count = 0;
     public int bad_count = 0;
+    public int level; // set in editor
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -98,20 +101,24 @@ public class TimeManager : MonoBehaviour
             {
 
                 timing = HitTiming.Late;
+                ok_count++;
             }
             else if (time_for_beat - beat_timer < time_for_beat * 0.175f)
             {
                 next_beat = true;
 
                 timing = HitTiming.Early;
+                ok_count++;
             }
             else if (beat_timer < time_for_beat / 2)
             {
                 timing = HitTiming.MissLate;
+                bad_count++;
             }
             else
             {
                 timing = HitTiming.MissEarly;
+                bad_count++;
                 next_beat = true;
             }
 
@@ -275,6 +282,7 @@ public class TimeManager : MonoBehaviour
         // 2 bar after the last note started
         if (bar > song_length + 2)
         {
+            GlobalData.setData(level, perfect_count, ok_count, bad_count, time_for_beat);
             SceneManager.LoadScene("End Menu");
         }
 
