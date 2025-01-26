@@ -2,23 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class MenuController : MonoBehaviour
 {
-    private bool flipFlop = false;
-    public AudioClip clickSound1;
-    public AudioClip clickSound2;
+    [SerializeField] VideoPlayer intro_video_player;
+    [SerializeField] VideoPlayer outro_video_player;
+    [SerializeField] VideoPlayer loop_video_player;
 
+    [SerializeField] RawImage intro_image;
+    [SerializeField] RawImage outro_image;
+    [SerializeField] RawImage loop_image;
 
-    public AudioSource audioSource;
-
-    bool moving = false;
-    float timer = 0.5f;
+    private void Start()
+    {
+        intro_video_player.loopPointReached += introFinished;
+        outro_video_player.loopPointReached += outroFinished;
+    }
 
     public void startGame()
     {
-        moving = true;
-        //SceneManager.LoadScene("timertest");
+        //start outro
+        outro_image.gameObject.SetActive(true);
+        outro_video_player.Play();
+
+        //stop loop
+        loop_video_player.Stop();        
     }
 
     public void exitGame()
@@ -26,28 +36,16 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
-    public void MenuButtonSound()
+    void introFinished(VideoPlayer video_player)
     {
-        
-        if (flipFlop)
-        {
-            audioSource.PlayOneShot(clickSound1);
-
-        }
-        else
-        {
-            audioSource.PlayOneShot(clickSound2);
-        }
+        //start loop
+        loop_image.gameObject.SetActive(true);
+        loop_video_player.Play();
     }
 
-    private void Update()
+    void outroFinished(VideoPlayer video_player)
     {
-        if (moving)
-        {
-            timer -= Time.deltaTime;
-            if (timer < 0)
-                SceneManager.LoadScene("Level2");
-        }
+        //load game
+        SceneManager.LoadScene("timertest");
     }
-
 }
