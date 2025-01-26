@@ -56,6 +56,8 @@ public class TimeManager : MonoBehaviour
     public int bad_count = 0;
     public int level; // set in editor
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -99,20 +101,24 @@ public class TimeManager : MonoBehaviour
             {
 
                 timing = HitTiming.Late;
+                ok_count++;
             }
             else if (time_for_beat - beat_timer < time_for_beat * 0.175f)
             {
                 next_beat = true;
 
                 timing = HitTiming.Early;
+                ok_count++;
             }
             else if (beat_timer < time_for_beat / 2)
             {
                 timing = HitTiming.MissLate;
+                bad_count++;
             }
             else
             {
                 timing = HitTiming.MissEarly;
+                bad_count++;
                 next_beat = true;
             }
 
