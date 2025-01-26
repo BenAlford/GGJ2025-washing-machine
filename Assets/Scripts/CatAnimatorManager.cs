@@ -9,9 +9,9 @@ public class CatAnimatorManager : MonoBehaviour
 
     Animator animator;
 
-    CatState cat_state = CatState.NEUTRAL;
+    CatState cat_state = CatState.ANGRY;
 
-    enum CatState
+    public enum CatState
     {
         HAPPY = 1,
         NEUTRAL = 2,
@@ -28,11 +28,21 @@ public class CatAnimatorManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            cat_state = CatState.HAPPY;
+        }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            bopNeutral();
+            cat_state = CatState.ANGRY;
         }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            cat_state = CatState.NEUTRAL;
+        }
+
         timer += Time.deltaTime;
+
         if (timer > time_for_beat)
         {
             switch (cat_state)
@@ -40,6 +50,21 @@ public class CatAnimatorManager : MonoBehaviour
                 case CatState.HAPPY:
                     {
                         bopHappy();
+
+                        break;
+                    }
+
+                case CatState.NEUTRAL:
+                    {
+                        bopNeutral();
+
+                        break;
+                    }
+
+                case CatState.ANGRY:
+                    {
+                        bopAngry();
+
                         break;
                     }
             }
@@ -48,7 +73,12 @@ public class CatAnimatorManager : MonoBehaviour
         }
     }
 
-    public void bopHappy()
+    public void setCatState(CatState new_cat_state)
+    {
+        cat_state = new_cat_state;
+    }
+
+    void bopHappy()
     {
         if (animator != null)
         {
@@ -56,7 +86,7 @@ public class CatAnimatorManager : MonoBehaviour
         }
     }
 
-    public void bopNeutral()
+    void bopNeutral()
     {
         if (animator != null)
         {
@@ -64,7 +94,7 @@ public class CatAnimatorManager : MonoBehaviour
         }
     }
 
-    public void bopAngry()
+    void bopAngry()
     {
         if (animator != null)
         {

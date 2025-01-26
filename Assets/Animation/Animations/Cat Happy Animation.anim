@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cat Neutral Animation
+  m_Name: Cat Happy Animation
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1018019381, guid: a5f520b7a3cb00a4eb6eed9d10ea883e, type: 3}
+      value: {fileID: -1187664360, guid: 58e22eb1a3b32124f9cdbe0c5341fceb, type: 3}
     - time: 0.083333336
-      value: {fileID: 479357710, guid: a5f520b7a3cb00a4eb6eed9d10ea883e, type: 3}
+      value: {fileID: -199736330, guid: 58e22eb1a3b32124f9cdbe0c5341fceb, type: 3}
     - time: 0.16666667
-      value: {fileID: -1875493757, guid: a5f520b7a3cb00a4eb6eed9d10ea883e, type: 3}
+      value: {fileID: 1960022007, guid: 58e22eb1a3b32124f9cdbe0c5341fceb, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1018019381, guid: a5f520b7a3cb00a4eb6eed9d10ea883e, type: 3}
-    - {fileID: 479357710, guid: a5f520b7a3cb00a4eb6eed9d10ea883e, type: 3}
-    - {fileID: -1875493757, guid: a5f520b7a3cb00a4eb6eed9d10ea883e, type: 3}
+    - {fileID: -1187664360, guid: 58e22eb1a3b32124f9cdbe0c5341fceb, type: 3}
+    - {fileID: -199736330, guid: 58e22eb1a3b32124f9cdbe0c5341fceb, type: 3}
+    - {fileID: 1960022007, guid: 58e22eb1a3b32124f9cdbe0c5341fceb, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

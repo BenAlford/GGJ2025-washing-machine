@@ -1,10 +1,43 @@
 fileFormatVersion: 2
-guid: ab7e0d76afd8da440a8e525ad5ed0a2c
+guid: 58e22eb1a3b32124f9cdbe0c5341fceb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4016573512407184299
-    second: Hit_circle_0
+      213: -4376868536548720029
+    second: happy-ezgif.com-gif-to-sprite-converter_0
+  - first:
+      213: -1920636979929477332
+    second: happy-ezgif.com-gif-to-sprite-converter_1
+  - first:
+      213: -8616371950214551617
+    second: happy-ezgif.com-gif-to-sprite-converter_2
+  - first:
+      213: 8040334617805741507
+    second: happy-ezgif.com-gif-to-sprite-converter_3
+  - first:
+      213: 6934011040988831033
+    second: happy-ezgif.com-gif-to-sprite-converter_4
+  - first:
+      213: 3181791306996315436
+    second: happy-ezgif.com-gif-to-sprite-converter_5
+  - first:
+      213: 1535466585252052124
+    second: happy-ezgif.com-gif-to-sprite-converter_6
+  - first:
+      213: 1292405531935079712
+    second: happy-ezgif.com-gif-to-sprite-converter_7
+  - first:
+      213: -3057568695117998459
+    second: happy-ezgif.com-gif-to-sprite-converter_8
+  - first:
+      213: 8834717893720969604
+    second: happy-ezgif.com-gif-to-sprite-converter_9
+  - first:
+      213: 8976632580153090064
+    second: happy-ezgif.com-gif-to-sprite-converter_10
+  - first:
+      213: 8373130043432452644
+    second: happy-ezgif.com-gif-to-sprite-converter_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 175
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -165,22 +198,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hit_circle_0
+      name: cat_machine_happy_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 761
-        y: 61
-        width: 512
-        height: 515
+        x: 0
+        y: 0
+        width: 1070
+        height: 1025
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 55c0ab2dba34248c0800000000000000
-      internalID: -4016573512407184299
+      spriteID: 36fd8cf62262dd447a68e61169923c5d
+      internalID: -1187664360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_machine_happy_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 0
+        width: 1070
+        height: 1025
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f37bedfb51d52db4c9f7e1cfcb70413c
+      internalID: -199736330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cat_machine_happy_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 2140
+        y: 0
+        width: 1070
+        height: 1025
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727862d7d843d5d4f97c4b93a1c0bf20
+      internalID: 1960022007
       vertices: []
       indices: 
       edges: []
@@ -188,7 +263,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 68d2f43c1238a6c49883ebe686327a53
     internalID: 0
     vertices: []
     indices: 
@@ -196,7 +271,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Hit_circle_0: -4016573512407184299
+      cat_machine_happy_spritesheet_0: -1187664360
+      cat_machine_happy_spritesheet_1: -199736330
+      cat_machine_happy_spritesheet_2: 1960022007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
