@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CatAnimatorManager : MonoBehaviour
-{ 
+{
+    public bool half = false;
     float time_for_beat;
     float timer = 0;
 
@@ -22,6 +23,8 @@ public class CatAnimatorManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         int bpm = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>().bpm;
+        if (half)
+            bpm /= 2;
         time_for_beat = 1f / ((float)bpm / 60f);
         timer += 0.15f;
     }
